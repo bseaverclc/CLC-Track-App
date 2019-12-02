@@ -8,14 +8,34 @@
 
 import UIKit
 import SafariServices
+import Firebase
 
 class ViewController: UIViewController {
-
+var ref: DatabaseReference!
+    
+    
+    @IBOutlet weak var nameOutlet: UITextField!
+    
+    @IBOutlet weak var yearOutlet: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func addAthleteAction(_ sender: UIButton) {
+        let key = ref.child("athletes").childByAutoId().key
+            
+            //creating artist with the given values
+        let ath = ["name": nameOutlet.text!,
+                   "year": yearOutlet.text!
+                    ]
+                            
+        
+            //adding the artist inside the generated unique key
+            ref.child(key!).setValue(ath)
+    }
     @IBAction func meetResultsAction(_ sender: UIButton) {
            let url = URL(string: "https://www.athletic.net/TrackAndField/School.aspx?SchoolID=16275")
         let svc = SFSafariViewController(url: url!)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct Athlete {
     var name: String
@@ -18,15 +19,44 @@ struct Athlete {
 
 
 class AthletesTableViewController: UITableViewController {
-
+var ref: DatabaseReference!
     var athletes = [Athlete]()
     var selected: Athlete!
     
+   
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        athletes.append(Athlete(name: "Owen Mize", year: 12, pic: UIImage(named: "camden")!))
-        athletes.append(Athlete(name: "Ryan Atkinson", year: 11, pic: UIImage(named: "teamPic")!))
+        
+        ref = Database.database().reference()
+    /*ref.child("athletes").observeSingleEvent(of: .value) { (snapshot) in
+        print(snapshot)
+ */
+        ref.observe(.childAdded){ snapshot in
+            
+            print(snapshot)
+        
+        
+       if let dictionary = snapshot.value as? NSDictionary{
+    var theName = dictionary["name"] as! String
+        var theYear = Int(dictionary["year"] as! String)!
+        self.athletes.append(Athlete(name: theName, year: theYear, pic: UIImage(named: "camden")!))
+            
+           // self.athletes.append(Athlete(name: "Ryan Atkinson", year: 11, pic: UIImage(named: "teamPic")!))
+        // need to reload the data because the closure happens on a different thread
+        self.tableView.reloadData()
+        }
+        
+        
+        }
+    
+        
+        
+        
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,10 +74,11 @@ class AthletesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(athletes.count)
         return athletes.count
     }
 
-    
+    //This gets called for every row in the tableviewe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
@@ -57,6 +88,19 @@ class AthletesTableViewController: UITableViewController {
         cell.detailTextLabel?.text = String(athletes[indexPath.row].year)
         
         cell.imageView?.image = athletes[indexPath.row].pic
+        
+        /*
+        let key = ref.childByAutoId().key!
+             
+             //creating artist with the given values
+             let ath = ["name": athletes[indexPath.row].name,
+                             "year": athletes[indexPath.row].year as! String
+                             ]
+         
+             //adding the artist inside the generated unique key
+             ref.child(key).setValue(ath)
+ */
+        
         
         return cell
     }

@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class AthleteViewController: UIViewController {
 
     @IBOutlet weak var textViewOutlet: UITextView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
     var athlete: Athlete!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         imageViewOutlet.image = athlete.pic
         textViewOutlet.text = "Name: \(athlete.name)\nYear: \(athlete.year)"
+ 
         // Do any additional setup after loading the view.
     }
     
