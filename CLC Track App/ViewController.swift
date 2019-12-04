@@ -36,6 +36,7 @@ var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("view loading")
         imagePicker.delegate = self
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
