@@ -1,0 +1,6 @@
+framework module Pods_CLC_Track_AppUITests {
+  umbrella header "Pods-CLC Track AppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
