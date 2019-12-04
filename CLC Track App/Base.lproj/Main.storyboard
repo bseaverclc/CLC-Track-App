@@ -47,6 +47,14 @@
                                     <action selector="teamBestsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yuF-cN-qrw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9R-5p-a6H">
+                                <rect key="frame" x="167" y="223" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Meet Info"/>
+                                <connections>
+                                    <action selector="meetInfoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdK-NT-yod"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du1-kr-fn0">
                                 <rect key="frame" x="150" y="290" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -75,12 +83,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9R-5p-a6H">
-                                <rect key="frame" x="167" y="223" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3J-pM-gcb">
+                                <rect key="frame" x="35" y="113" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Meet Info"/>
+                                <state key="normal" title="take picture"/>
                                 <connections>
-                                    <action selector="meetInfoAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdK-NT-yod"/>
+                                    <action selector="pictureAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2pC-Ws-ZJc"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-NH-xEi">
+                                <rect key="frame" x="28" y="290" width="97" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8v-by-NpV">
+                                <rect key="frame" x="172" y="69" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="register"/>
+                                <connections>
+                                    <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WwF-s3-pYH"/>
+                                    <segue destination="PsC-lG-2rd" kind="show" id="1P8-5M-OmX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,13 +110,56 @@
                     </view>
                     <navigationItem key="navigationItem" id="RbC-0f-FCT"/>
                     <connections>
+                        <outlet property="imageOutlet" destination="lBL-NH-xEi" id="Ac1-MV-apX"/>
                         <outlet property="nameOutlet" destination="u9a-XE-Xp3" id="QT9-MC-6cB"/>
                         <outlet property="yearOutlet" destination="nM3-K0-Wb3" id="boP-Fr-usa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852.17391304347836" y="136.60714285714286"/>
+            <point key="canvasLocation" x="852" y="136.28185907046478"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="AX2-88-ukO">
+            <objects>
+                <viewController id="PsC-lG-2rd" customClass="RegisterViewController" customModule="CLC_Track_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l2r-EM-R9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VF8-9y-pQh">
+                                <rect key="frame" x="139" y="70" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-xP-tJN">
+                                <rect key="frame" x="139" y="138" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS9-F8-rSi">
+                                <rect key="frame" x="159" y="210" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerAction:" destination="PsC-lG-2rd" eventType="touchUpInside" id="REv-Ri-1m9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Jul-nE-bKk"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FdE-oC-ePe"/>
+                    <connections>
+                        <outlet property="emailOutlet" destination="VF8-9y-pQh" id="eIt-52-LyM"/>
+                        <outlet property="passwordOutlet" destination="AkP-xP-tJN" id="5hI-CW-IPg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6d-ce-JmE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="859"/>
         </scene>
         <!--Athletes Table View Controller-->
         <scene sceneID="CSX-hW-c83">

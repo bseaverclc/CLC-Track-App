@@ -6,13 +6,29 @@
 //  Copyright © 2019 clc.seaver. All rights reserved.
 //
 
+// Camera steps
+/*
+ 1)  info.plist Privacy
+ 2)  Add delegates to class header
+ 3)  Create an object of UIImagePickerController class
+ 4)  In viewDidLoad make delegate of UIImagePickerController = self
+ 5)  Create buttons and actions for photo and camera
+ 6)  Create a UIImageView and make an outlet for it
+ 7)  Write code for both buttons(look below)
+ 
+ */
+
 import UIKit
 import SafariServices
+
 import Firebase
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 var ref: DatabaseReference!
-    
+  let imagePicker = UIImagePickerController()
+
+    @IBOutlet weak var imageOutlet: UIImageView!
     
     @IBOutlet weak var nameOutlet: UITextField!
     
@@ -20,6 +36,7 @@ var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
@@ -62,6 +79,54 @@ var ref: DatabaseReference!
         present(svc, animated: true, completion: nil)
         
     }
+    
+    @IBAction func pictureAction(_ sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+        }
+        else{
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        }
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true){
+            let pickedImage = info[.originalImage] as? UIImage
+            self.imageOutlet.image = pickedImage
+            self.saveImageToFirebase(image: pickedImage!)
+        }
+        
+        
+    }
+    
+    func saveImageToFirebase(image: UIImage){
+        if let currentUser = Auth.auth().currentUser?.uid{
+                   
+            let storageRef = Storage.storage().reference().child("profileImages").child(currentUser)
+            if storageRef != nil{
+                   
+            guard let imageData = image.pngData() else {
+                print("pngData not good")
+                return}
+                   
+            let storeData = storageRef.putData(imageData)
+            }
+            else{
+                print("Storage Ref was nil")
+            }
+    }
+        else{
+            print("current Id not valid")
+        }
+    }
+    
+    @IBAction func registerButton(_ sender: UIButton) {
+        
+       
+            
+        }
     
 }
 
