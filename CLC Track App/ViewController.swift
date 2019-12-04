@@ -28,14 +28,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 var ref: DatabaseReference!
   let imagePicker = UIImagePickerController()
 
-    @IBOutlet weak var imageOutlet: UIImageView!
+
     
-    @IBOutlet weak var nameOutlet: UITextField!
+    @IBOutlet weak var createAccountButton: UIButton!
     
-    @IBOutlet weak var yearOutlet: UITextField!
+    @IBOutlet weak var teambestsOutlet: UIButton!
+    
+    @IBOutlet weak var searchForAthleteOutlet: UIButton!
+    
+    @IBOutlet weak var scheduleOutlet: UIButton!
+    
+    @IBOutlet weak var meetInfoOutlet: UIButton!
+    
+    @IBOutlet weak var meetResultsOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("view loading")
         imagePicker.delegate = self
         ref = Database.database().reference()
@@ -46,13 +55,13 @@ var ref: DatabaseReference!
         let key = ref.child("athletes").childByAutoId().key
             
             //creating artist with the given values
-        let ath = ["name": nameOutlet.text!,
-                   "year": yearOutlet.text!
-                    ]
+        //let ath = ["name": nameOutlet.text!,
+                   //"year": yearOutlet.text!
+                    //]
                             
         
             //adding the artist inside the generated unique key
-            ref.child(key!).setValue(ath)
+            //ref.child(key!).setValue(ath)
     }
     @IBAction func meetResultsAction(_ sender: UIButton) {
            let url = URL(string: "https://www.athletic.net/TrackAndField/School.aspx?SchoolID=16275")
@@ -95,7 +104,7 @@ var ref: DatabaseReference!
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true){
             let pickedImage = info[.originalImage] as? UIImage
-            self.imageOutlet.image = pickedImage
+            //self.imageOutlet.image = pickedImage
             self.saveImageToFirebase(image: pickedImage!)
         }
         
