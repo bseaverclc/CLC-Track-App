@@ -85,3 +85,4 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 }
 }
+
