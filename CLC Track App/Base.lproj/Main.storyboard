@@ -105,6 +105,13 @@
                                     <action selector="teamBestsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yuF-cN-qrw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbp-o8-oEU">
+                                <rect key="frame" x="99" y="532" width="188" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -114,6 +121,7 @@
                         <outlet property="createAccountButton" destination="z8v-by-NpV" id="z3K-lo-qrq"/>
                         <outlet property="meetInfoOutlet" destination="i9R-5p-a6H" id="W27-wR-hRv"/>
                         <outlet property="meetResultsOutlet" destination="neA-Ei-3jB" id="UN0-fJ-0Dh"/>
+                        <outlet property="nameLabelOutlet" destination="gbp-o8-oEU" id="cyz-Kf-4me"/>
                         <outlet property="scheduleOutlet" destination="Hyb-fz-2UT" id="k2i-0i-MmN"/>
                         <outlet property="searchForAthleteOutlet" destination="du1-kr-fn0" id="IoU-5f-J4D"/>
                         <outlet property="teambestsOutlet" destination="giV-WW-fcG" id="aiF-BL-0eP"/>
@@ -131,51 +139,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0nd-En-rhh">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0nd-En-rhh">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VF8-9y-pQh">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AkP-xP-tJN">
-                                        <rect key="frame" x="0.0" y="36.5" width="375" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="54" width="375" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bu3-Kp-60L">
-                                        <rect key="frame" x="0.0" y="73" width="375" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="375" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xro-f0-hAc">
-                                        <rect key="frame" x="0.0" y="109.5" width="375" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="122" width="375" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year (9,10,11,or 12)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hn-N2-Hsv">
-                                        <rect key="frame" x="0.0" y="146" width="375" height="37"/>
+                                        <rect key="frame" x="0.0" y="156" width="375" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event(s)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JpN-kH-aGy">
-                                        <rect key="frame" x="0.0" y="183" width="375" height="36.5"/>
+                                        <rect key="frame" x="0.0" y="190" width="375" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-yq-Oxg">
-                                        <rect key="frame" x="0.0" y="219.5" width="375" height="32"/>
+                                        <rect key="frame" x="0.0" y="224" width="375" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6h-Vs-3Ne">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="30"/>
                                                 <state key="normal" title="Take Profile Pic"/>
                                                 <connections>
                                                     <action selector="takePicAction:" destination="PsC-lG-2rd" eventType="touchUpInside" id="NoT-tP-xZ6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ttp-ta-oUg">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="32"/>
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="30"/>
                                                 <state key="normal" title="Upload Profile Pic"/>
                                                 <connections>
                                                     <action selector="uploadPicAction:" destination="PsC-lG-2rd" eventType="touchUpInside" id="ABj-pY-Ya3"/>
@@ -184,10 +192,10 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-jP-IIx">
-                                        <rect key="frame" x="0.0" y="251.5" width="375" height="339"/>
+                                        <rect key="frame" x="0.0" y="254" width="375" height="339"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS9-F8-rSi">
-                                        <rect key="frame" x="0.0" y="590.5" width="375" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="593" width="375" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
                                             <action selector="registerAction:" destination="PsC-lG-2rd" eventType="touchUpInside" id="REv-Ri-1m9"/>

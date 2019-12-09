@@ -28,7 +28,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 var ref: DatabaseReference!
   let imagePicker = UIImagePickerController()
 
-
+    @IBOutlet weak var nameLabelOutlet: UILabel!
+    
     
     @IBOutlet weak var createAccountButton: UIButton!
     
@@ -42,13 +43,33 @@ var ref: DatabaseReference!
     
     @IBOutlet weak var meetResultsOutlet: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        ref = Database.database().reference()
+        print("In view will appear")
+        if let currentUser = Auth.auth().currentUser?.uid{
+        print(currentUser)
+            ref = ref.child(currentUser)
+            ref.observeSingleEvent(of: .value) { (snapshot) in
+                if let theUser = snapshot.value as? [String:String]{
+                   self.nameLabelOutlet.text = "Welcome \(theUser["name"]!)"
+                    print("Changing name")
+                }
+            }
+            
+                    
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("view loading")
         imagePicker.delegate = self
-        ref = Database.database().reference()
+        
         // Do any additional setup after loading the view.
+        
+        
     }
 
     @IBAction func addAthleteAction(_ sender: UIButton) {

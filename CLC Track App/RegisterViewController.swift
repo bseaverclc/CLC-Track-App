@@ -22,6 +22,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var imageViewOutlet: UIImageView!
     var ref : DatabaseReference!
     
+    var pickedImage = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -42,8 +44,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
            
            func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
                picker.dismiss(animated: true){
-                   let pickedImage = info[.originalImage] as? UIImage
-                   self.imageViewOutlet.image = pickedImage
+                self.pickedImage = info[.originalImage] as! UIImage
+                self.imageViewOutlet.image = self.pickedImage
                    //self.saveImageToFirebase(image: pickedImage!)
                }
     }
@@ -63,26 +65,42 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             }
             else{
                 if let uid = result?.user.uid{
-                    print(uid)
-                   
-                    
-                    
+                    //print(uid)
+                    let ath = ["name": self.firstOutlet.text!,
+                        "year": self.yearOutlet.text!
+                         ]
+                    self.ref.child(uid).setValue(ath)
+                    self.saveImageToFirebase(image: self.pickedImage)
+                        print(uid)
+                    Auth.auth().updateCurrentUser(result!.user, completion: nil)
+                    print("Current User \(Auth.auth().currentUser?.uid)")
                 }
             }
         }
         
-        if let currentUser = Auth.auth().currentUser?.uid {
-            let ath = ["name": self.firstOutlet.text!,
-            "year": self.yearOutlet.text!
-             ]
-        ref.child(currentUser).setValue(ath)
-            
-            
-                                
-            
-                //adding the artist inside the generated unique key
-           // self.ref.child(key).setValue(ath)
-    }
+      
 }
+    
+    func saveImageToFirebase(image: UIImage){
+        print("Saving image to firebase")
+        if let currentUser = Auth.auth().currentUser?.uid{
+                   
+            let storageRef = Storage.storage().reference().child("profileImages").child(currentUser)
+            if storageRef != nil{
+                   
+            guard let imageData = image.pngData() else {
+                print("pngData not good")
+                return}
+                   
+            let storeData = storageRef.putData(imageData)
+            }
+            else{
+                print("Storage Ref was nil")
+            }
+    }
+        else{
+            print("current Id not valid")
+        }
+    }
 }
 
