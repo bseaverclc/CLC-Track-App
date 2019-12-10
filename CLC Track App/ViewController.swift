@@ -72,18 +72,7 @@ var ref: DatabaseReference!
         
     }
 
-    @IBAction func addAthleteAction(_ sender: UIButton) {
-        let key = ref.child("athletes").childByAutoId().key
-            
-            //creating artist with the given values
-        //let ath = ["name": nameOutlet.text!,
-                   //"year": yearOutlet.text!
-                    //]
-                            
-        
-            //adding the artist inside the generated unique key
-            //ref.child(key!).setValue(ath)
-    }
+    
     @IBAction func meetResultsAction(_ sender: UIButton) {
            let url = URL(string: "https://www.athletic.net/TrackAndField/School.aspx?SchoolID=16275")
         let svc = SFSafariViewController(url: url!)
@@ -111,52 +100,27 @@ var ref: DatabaseReference!
         
     }
     
-    @IBAction func pictureAction(_ sender: UIButton) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-        }
-        else{
-            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-        }
-        present(imagePicker, animated: true, completion: nil)
-    }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true){
-            let pickedImage = info[.originalImage] as? UIImage
-            //self.imageOutlet.image = pickedImage
-            self.saveImageToFirebase(image: pickedImage!)
-        }
-        
-        
-    }
     
-    func saveImageToFirebase(image: UIImage){
-        if let currentUser = Auth.auth().currentUser?.uid{
-                   
-            let storageRef = Storage.storage().reference().child("profileImages").child(currentUser)
-            if storageRef != nil{
-                   
-            guard let imageData = image.pngData() else {
-                print("pngData not good")
-                return}
-                   
-            let storeData = storageRef.putData(imageData)
-            }
-            else{
-                print("Storage Ref was nil")
-            }
-    }
-        else{
-            print("current Id not valid")
-        }
-    }
+    
+    
+    
     
     @IBAction func registerButton(_ sender: UIButton) {
-        
+        let alert = UIAlertController(title: "Admin Password", message: "Enter the Admin Password", preferredStyle: .alert)
        
-            
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Enter Password"
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert](_) in
+            let textField = alert?.textFields![0]
+            if textField!.text! == "pony"{
+                self.performSegue(withIdentifier: "createSegue", sender: nil)
+            }
+        }))
+         
+        self.present(alert, animated: true, completion: nil)
         }
     
 }
