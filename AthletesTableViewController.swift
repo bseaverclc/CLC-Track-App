@@ -17,6 +17,26 @@ struct Athlete {
     
 }
 
+class CustomTableViewCell: UITableViewCell{
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.imageView?.frame = CGRect(x: 10, y: 0, width: 40, height: 40)
+        self.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        
+    }
+}
+
 
 class AthletesTableViewController: UITableViewController {
 var ref: DatabaseReference!
@@ -114,14 +134,18 @@ var ref: DatabaseReference!
 
     //This gets called for every row in the tableviewe
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell  = (tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath))
 
         
         // Configure the cell...
         cell.textLabel?.text = athletes[indexPath.row].name
         cell.detailTextLabel?.text = String(athletes[indexPath.row].year)
         
+        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)!/2.0
+        cell.imageView?.layer.borderWidth = 3.0
+        cell.imageView?.clipsToBounds = true
         cell.imageView?.image = athletes[indexPath.row].pic
+        
         
         /*
         let key = ref.childByAutoId().key!

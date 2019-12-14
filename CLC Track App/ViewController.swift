@@ -101,10 +101,33 @@ var ref: DatabaseReference!
     }
     
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Login", message: "Enter email and password", preferredStyle: .alert)
+        
+         alert.addTextField { (textfield) in
+             textfield.placeholder = "email"
+            
+         }
+        
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "password"
+           
+        }
+         
+         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { [weak alert](_) in
+            let email = alert!.textFields![0].text!
+            let password = alert!.textFields![1].text!
+        
+            Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+                if error != nil {
+                    print("did not sign in")
+                }
+            }
+    }))
     
+        self.present(alert, animated: true, completion: nil)
     
-    
-    
+    }
     
     @IBAction func registerButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Admin Password", message: "Enter the Admin Password", preferredStyle: .alert)
