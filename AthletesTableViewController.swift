@@ -38,11 +38,45 @@ var ref: DatabaseReference!
             
             print(snapshot)
         
-        
+        var profileImage = UIImage(named: "camden")
        if let dictionary = snapshot.value as? NSDictionary{
-    var theName = dictionary["name"] as! String
+        guard let urlString = dictionary["profileImageUrl"] as? String
+            else{
+                print("profileurl not found")
+                return
+                }
+        guard let url = URL(string: urlString) else
+        {print("url not created")
+            return}
+        let dowloadTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil{
+                    print(error?.localizedDescription)
+                    print("error with dataTask")
+                }
+                else{
+            // This is extremely slow to happen
+                // How do we speed this up?
+                DispatchQueue.main.async {
+                    profileImage = UIImage(data: data!)
+                     print("profile Image changed")
+                    var theName = dictionary["name"] as! String
+                    var theYear = Int(dictionary["year"] as! String)!
+                    self.athletes.append(Athlete(name: theName, year: theYear, pic: profileImage!))
+                    self.tableView.reloadData()
+                }
+                }
+            }
+        // Calling the URLSession download task
+        // It doesn't automatically get called on its own
+        dowloadTask.resume()
+        
+                  
+      
+    /* Moved this up to Dispatch Queue to make it happen after the images are loaded
+     var theName = dictionary["name"] as! String
         var theYear = Int(dictionary["year"] as! String)!
-        self.athletes.append(Athlete(name: theName, year: theYear, pic: UIImage(named: "camden")!))
+        self.athletes.append(Athlete(name: theName, year: theYear, pic: profileImage!))
+ */
             
            // self.athletes.append(Athlete(name: "Ryan Atkinson", year: 11, pic: UIImage(named: "teamPic")!))
         // need to reload the data because the closure happens on a different thread

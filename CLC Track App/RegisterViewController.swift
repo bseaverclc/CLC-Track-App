@@ -93,6 +93,34 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 return}
                    
             let storeData = storageRef.putData(imageData)
+               // This closure continues to observe until progress completed?
+                storeData.observe(.progress) { (snapshot) in
+                    let progress = snapshot.progress
+                    
+                    print(progress?.fractionCompleted)
+                    
+                    
+                }
+                
+                storeData.observe(.success) { (snapshot) in
+                    let status = snapshot.status
+                    if status == .success{
+                        print ("upload successfully")
+                        storageRef.downloadURL { (url, error) in
+                            if error != nil{
+                                print(error?.localizedDescription)
+                            }
+                            else{
+                                guard let url = url else{return}
+                                Database.database().reference().child(currentUser).updateChildValues(["profileImageUrl":url.absoluteString])
+                            }
+                            
+                        }
+                }
+                }
+                
+                
+                
             }
             else{
                 print("Storage Ref was nil")
