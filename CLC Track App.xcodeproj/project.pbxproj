@@ -127,7 +127,6 @@
 		D3E4E8C22390367400ABD397 = {
 			isa = PBXGroup;
 			children = (
-				D3E4E901239047E700ABD397 /* AthletesTableViewController.swift */,
 				D3E4E8CD2390367400ABD397 /* CLC Track App */,
 				D3E4E8E72390367500ABD397 /* CLC Track AppTests */,
 				D3E4E8F22390367500ABD397 /* CLC Track AppUITests */,
@@ -151,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E4E8CE2390367400ABD397 /* AppDelegate.swift */,
+				D3E4E901239047E700ABD397 /* AthletesTableViewController.swift */,
 				D3E4E8D02390367400ABD397 /* SceneDelegate.swift */,
 				D3E4E8D22390367400ABD397 /* ViewController.swift */,
 				D3E4E8D42390367400ABD397 /* Main.storyboard */,

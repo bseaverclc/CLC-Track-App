@@ -59,6 +59,9 @@ var ref: DatabaseReference!
                     
             
         }
+        else{
+            self.nameLabelOutlet.text = "Not logged in"
+        }
     }
     
     override func viewDidLoad() {
@@ -122,12 +125,29 @@ var ref: DatabaseReference!
                 if error != nil {
                     print("did not sign in")
                 }
+                else{
+                    self.viewWillAppear(true)
+                }
             }
     }))
     
         self.present(alert, animated: true, completion: nil)
     
     }
+    
+    @IBAction func logOutAction(_ sender: Any) {
+        do
+        {
+             try Auth.auth().signOut()
+            self.viewWillAppear(true)
+        }
+        catch let error
+        {
+            print (error.localizedDescription)
+        }
+    }
+    
+    
     
     @IBAction func registerButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Admin Password", message: "Enter the Admin Password", preferredStyle: .alert)

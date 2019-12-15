@@ -11,17 +11,25 @@ import Firebase
 
 class AthleteViewController: UIViewController {
 
+    var ref: DatabaseReference!
     @IBOutlet weak var textViewOutlet: UITextView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
     var athlete: Athlete!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
         
         
         imageViewOutlet.image = athlete.pic
-        textViewOutlet.text = "Name: \(athlete.name)\nYear: \(athlete.year)"
+        textViewOutlet.text = "Name: \(athlete.name)\nYear: \(athlete.year)\nUID: \(athlete.uid)"
+        
+        if let currentUser = Auth.auth().currentUser?.uid{
+            if athlete.uid == currentUser{
+                print("this is the current user")
+            textViewOutlet.isEditable = true
+            }
+        }
  
         // Do any additional setup after loading the view.
     }
