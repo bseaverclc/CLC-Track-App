@@ -68,7 +68,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                     //print(uid)
                     let ath = ["name": self.firstOutlet.text!,
                         "year": self.yearOutlet.text!,
-                        "uid" : uid
+                        "uid" : uid,
+                        "info" : "Name: \(self.firstOutlet.text!)\nYear: \(self.yearOutlet.text!)"
                          ]
                     self.ref.child(uid).setValue(ath)
                     self.saveImageToFirebase(image: self.pickedImage)

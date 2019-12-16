@@ -14,6 +14,7 @@ struct Athlete {
     var year: Int
     var pic: UIImage
     var uid: String
+    var info: String
     
     
 }
@@ -83,7 +84,8 @@ var ref: DatabaseReference!
                     var theName = dictionary["name"] as! String
                     var theYear = Int(dictionary["year"] as! String)!
                     var theUid = dictionary["uid"] as! String
-                    self.athletes.append(Athlete(name: theName, year: theYear, pic: profileImage!, uid: theUid))
+                    var theInfo = dictionary["info"] as! String
+                    self.athletes.append(Athlete(name: theName, year: theYear, pic: profileImage!, uid: theUid, info: theInfo))
                     self.tableView.reloadData()
                 }
                 }
