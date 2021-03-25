@@ -77,6 +77,7 @@ var ref: DatabaseReference!
                 }
                 else{
             // This is extremely slow to happen
+                    // Takes up to 1 minute to load pictures
                 // How do we speed this up?
                 DispatchQueue.main.async {
                     profileImage = UIImage(data: data!)
