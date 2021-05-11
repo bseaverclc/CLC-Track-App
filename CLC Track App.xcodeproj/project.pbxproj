@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		521B2B1DCF9CF4B1108D80E5 /* Pods_CLC_Track_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9A8464D7C4533D0C23F904 /* Pods_CLC_Track_AppUITests.framework */; };
+		A06F390D263B06E700DC3390 /* ViewControllerPersonalRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06F390B263B06E700DC3390 /* ViewControllerPersonalRecords.swift */; };
+		A06F390E263B06E700DC3390 /* ViewControllerPersonalRecords.xib in Resources */ = {isa = PBXBuildFile; fileRef = A06F390C263B06E700DC3390 /* ViewControllerPersonalRecords.xib */; };
+		A06F3917263C3BE900DC3390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06F3915263C3BE900DC3390 /* Main.storyboard */; };
+		A0B6EB02261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6EB00261F389F0029BAB7 /* ViewControllerEdit.swift */; };
+		A0B6EB03261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6EB00261F389F0029BAB7 /* ViewControllerEdit.swift */; };
+		A0B6EB04261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B6EB00261F389F0029BAB7 /* ViewControllerEdit.swift */; };
+		A0B6EB05261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B6EB01261F389F0029BAB7 /* ViewControllerEdit.xib */; };
+		A0B6EB06261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B6EB01261F389F0029BAB7 /* ViewControllerEdit.xib */; };
+		A0B6EB07261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B6EB01261F389F0029BAB7 /* ViewControllerEdit.xib */; };
 		BD2515ED95663D90056CE6BD /* Pods_CLC_Track_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F238339E114E294F5C89D1A9 /* Pods_CLC_Track_AppTests.framework */; };
 		D3644565239709F900C235EA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3644564239709F900C235EA /* RegisterViewController.swift */; };
 		D3E4E8CF2390367400ABD397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4E8CE2390367400ABD397 /* AppDelegate.swift */; };
 		D3E4E8D12390367400ABD397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4E8D02390367400ABD397 /* SceneDelegate.swift */; };
 		D3E4E8D32390367400ABD397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E4E8D22390367400ABD397 /* ViewController.swift */; };
-		D3E4E8D62390367400ABD397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E4E8D42390367400ABD397 /* Main.storyboard */; };
 		D3E4E8D92390367400ABD397 /* CLC_Track_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3E4E8D72390367400ABD397 /* CLC_Track_App.xcdatamodeld */; };
 		D3E4E8DB2390367400ABD397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E4E8DA2390367400ABD397 /* Assets.xcassets */; };
 		D3E4E8DE2390367400ABD397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E4E8DC2390367400ABD397 /* LaunchScreen.storyboard */; };
@@ -48,12 +56,16 @@
 		71A0B1A4ADE9E328EED46E46 /* Pods-CLC Track AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLC Track AppUITests.release.xcconfig"; path = "Target Support Files/Pods-CLC Track AppUITests/Pods-CLC Track AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7953E0090FB464A99FB3AA61 /* Pods-CLC Track AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLC Track AppTests.debug.xcconfig"; path = "Target Support Files/Pods-CLC Track AppTests/Pods-CLC Track AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D9A8464D7C4533D0C23F904 /* Pods_CLC_Track_AppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CLC_Track_AppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A06F390B263B06E700DC3390 /* ViewControllerPersonalRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPersonalRecords.swift; sourceTree = "<group>"; };
+		A06F390C263B06E700DC3390 /* ViewControllerPersonalRecords.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerPersonalRecords.xib; sourceTree = "<group>"; };
+		A06F3916263C3BE900DC3390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0B6EB00261F389F0029BAB7 /* ViewControllerEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEdit.swift; sourceTree = "<group>"; };
+		A0B6EB01261F389F0029BAB7 /* ViewControllerEdit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerEdit.xib; sourceTree = "<group>"; };
 		D3644564239709F900C235EA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D3E4E8CB2390367400ABD397 /* CLC Track App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CLC Track App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E4E8CE2390367400ABD397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E4E8D02390367400ABD397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D3E4E8D22390367400ABD397 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D3E4E8D52390367400ABD397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3E4E8D82390367400ABD397 /* CLC_Track_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CLC_Track_App.xcdatamodel; sourceTree = "<group>"; };
 		D3E4E8DA2390367400ABD397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E4E8DD2390367400ABD397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,7 +165,11 @@
 				D3E4E901239047E700ABD397 /* AthletesTableViewController.swift */,
 				D3E4E8D02390367400ABD397 /* SceneDelegate.swift */,
 				D3E4E8D22390367400ABD397 /* ViewController.swift */,
-				D3E4E8D42390367400ABD397 /* Main.storyboard */,
+				A06F390B263B06E700DC3390 /* ViewControllerPersonalRecords.swift */,
+				A06F390C263B06E700DC3390 /* ViewControllerPersonalRecords.xib */,
+				A0B6EB00261F389F0029BAB7 /* ViewControllerEdit.swift */,
+				A0B6EB01261F389F0029BAB7 /* ViewControllerEdit.xib */,
+				A06F3915263C3BE900DC3390 /* Main.storyboard */,
 				D3644564239709F900C235EA /* RegisterViewController.swift */,
 				D3E4E90323916F4E00ABD397 /* AthleteViewController.swift */,
 				D3E4E8DA2390367400ABD397 /* Assets.xcassets */,
@@ -293,8 +309,10 @@
 			files = (
 				D3E4E8DE2390367400ABD397 /* LaunchScreen.storyboard in Resources */,
 				D3E4E90623917BA600ABD397 /* GoogleService-Info.plist in Resources */,
+				A0B6EB05261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */,
+				A06F3917263C3BE900DC3390 /* Main.storyboard in Resources */,
 				D3E4E8DB2390367400ABD397 /* Assets.xcassets in Resources */,
-				D3E4E8D62390367400ABD397 /* Main.storyboard in Resources */,
+				A06F390E263B06E700DC3390 /* ViewControllerPersonalRecords.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6EB06261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6EB07261F389F0029BAB7 /* ViewControllerEdit.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6EB02261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */,
 				D3E4E90423916F4E00ABD397 /* AthleteViewController.swift in Sources */,
 				D3E4E8D92390367400ABD397 /* CLC_Track_App.xcdatamodeld in Sources */,
 				D3644565239709F900C235EA /* RegisterViewController.swift in Sources */,
@@ -412,6 +433,7 @@
 				D3E4E8CF2390367400ABD397 /* AppDelegate.swift in Sources */,
 				D3E4E902239047E700ABD397 /* AthletesTableViewController.swift in Sources */,
 				D3E4E8D12390367400ABD397 /* SceneDelegate.swift in Sources */,
+				A06F390D263B06E700DC3390 /* ViewControllerPersonalRecords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6EB03261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */,
 				D3E4E8E92390367500ABD397 /* CLC_Track_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B6EB04261F389F0029BAB7 /* ViewControllerEdit.swift in Sources */,
 				D3E4E8F42390367500ABD397 /* CLC_Track_AppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,10 +471,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D3E4E8D42390367400ABD397 /* Main.storyboard */ = {
+		A06F3915263C3BE900DC3390 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D3E4E8D52390367400ABD397 /* Base */,
+				A06F3916263C3BE900DC3390 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -588,7 +612,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S22H3YR676;
 				INFOPLIST_FILE = "CLC Track App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +632,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S22H3YR676;
 				INFOPLIST_FILE = "CLC Track App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

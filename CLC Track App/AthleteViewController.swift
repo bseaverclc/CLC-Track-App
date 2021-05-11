@@ -8,10 +8,15 @@
 
 import UIKit
 import Firebase
+import SafariServices
 
+@available(iOS 13.0, *)
+@available(iOS 13.0, *)
+@available(iOS 13.0, *)
 class AthleteViewController: UIViewController {
 
     var ref: DatabaseReference!
+    @IBOutlet var athleticNetButton: UIView!
     @IBOutlet weak var textViewOutlet: UITextView!
     @IBOutlet weak var imageViewOutlet: UIImageView!
     var athlete: Athlete!
@@ -39,9 +44,15 @@ class AthleteViewController: UIViewController {
         textViewOutlet.scrollRangeToVisible(selectedRange)
         */
     }
+    var backGroundColor = UIColor.systemBackground
+    var textColor = UIColor.orange
+      
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backGroundColor = self.view.backgroundColor!
+         textColor = textViewOutlet.backgroundColor!
         
         let notificationCenter = NotificationCenter.default
             notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -93,14 +104,10 @@ class AthleteViewController: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    @IBAction func athleticNetButtonAction(_ sender: UIButton) {
+        let url = URL(string: "https://www.athletic.net/")
+     let svc = SFSafariViewController(url: url!)
+     present(svc, animated: true, completion: nil)
+     }
+    
 }
